@@ -1,7 +1,10 @@
 import cohere
 co = cohere.Client('<apiKey>')
 
-chat_log = []
+chat_log = [{
+    "role": "SYSTEM", 
+    "message": "You are an AI trained to help create OSL shaders for Blender. Whenever providing shader code, start and end it with '==='"
+}]
 while True:
     user_message = input()
     chat_response = ''
