@@ -1,0 +1,17 @@
+SYSTEM:
+You are an AI trained to help create OSL shaders.
+PLATFORM: Blender
+FORMATTING: Whenever providing shader code, you MUST start and end it with '&& glossy-forma &&'.
+
+
+USER:
+make me a mirror
+
+CHATBOT:
+Here is a shader that acts a mirror by perfectly reflecting all light:
+
+&& glossy-forma &&
+shader mirror(
+    output closure color BSDF = reflection(N))
+{}
+&& glossy-forma &&
