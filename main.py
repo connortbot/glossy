@@ -2,9 +2,14 @@ import cohere
 co = cohere.Client('<apiKey>')
 marking_signature = "&& glossy-forma &&"
 
+SYSTEM_SETUP = f"""You are an AI trained to help create OSL shaders.
+PLATFORM: Blender
+FORMATTING: Whenever providing shader code, you MUST start and end it with '{marking_signature}'.
+"""
+
 chat_log = [{
     "role": "SYSTEM", 
-    "message": f"You are an AI trained to help create OSL shaders for Blender. Whenever providing shader code, start and end it with '{marking_signature}'"
+    "message": SYSTEM_SETUP
 }]
 while True:
     user_message = input("USER: ")

@@ -1,0 +1,6 @@
+shader isotropic_henyey1(
+    color baseColor = color(0.6, 0.8, 0.6),
+    output closure color VDF = henyey_greenstein(0.808))
+{
+    VDF = baseColor * henyey_greenstein(0);
+}
