@@ -17,6 +17,7 @@ while True:
     print("GLOSSY AI: ", end='')
 
     for event in co.chat_stream(
+        model="command-r",
         chat_history=chat_log,
         message=user_message
     ):
