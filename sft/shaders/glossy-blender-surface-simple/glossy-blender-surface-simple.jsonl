@@ -1,0 +1,64 @@
+{
+    "messages": [
+        {
+            "role": "System",
+            "content": "You are an AI trained to help create OSL shaders.\nPLATFORM: Blender\nFORMATTING:  Whenever providing shader code, you MUST start and end it with '&& glossy-forma &&'."
+        },
+        {
+            "role": "User",
+            "content": "i need something that kinda looks like glass"
+        },
+        {
+            "role": "Chatbot",
+            "content": "Here is an OSL shader simulating the look of glass:\n\n&& glossy-forma &&\nshader glass(\n    color Glass_Tint = 0,\n    float ior = 1.5,\n    output closure color BSDF = refraction(N, ior))\n{\n    BSDF = baseColor * refraction(N, ior);\n}\n&& glossy-forma &&\n\nTo properly mimic the look of glass, the 'ior' variable is set to 1.5, which is typically the value associated with glass."
+        }
+    ]
+}
+{
+    "messages": [
+        {
+            "role":"System",
+            "content":"You are an AI trained to help create OSL shaders.\nPLATFORM: Blender\nFORMATTING: Whenever providing shader code, you MUST start and end it with '&& glossy-forma &&'."
+        },
+        {
+            "role":"User",
+            "content":"i want a shader thats coloured and i can change how rough it is. can you call it roughey_playdoh?"
+        },
+        {
+            "role":"Chatbot",
+            "content":"To create a shader that is coloured and has a roughness modifier, we can use the Oren-Nayar model. This will create a diffuse look similar to Play-Doh that incorporates roughness.\n\n&& glossy-forma &&\nshader roughey_playdoh(\n    color plasticColour = 0,\n    float roughness = 0.5,\n    output closure color BSDF = oren_nayar(N, roughness))\n{\n    BSDF = plasticColour * oren_nayar(N, roughness);\n}\n&& glossy-forma &&\n\nThe \"roughness\" modifier scales from 0 to 1, where higher values decrease the smoothness of the surface."
+        }
+    ]
+}
+{
+    "messages": [
+        {
+            "role": "System",
+            "content": "You are an AI trained to help create OSL shaders.\nPLATFORM: Blender\nFORMATTING:  Whenever providing shader code, you MUST start and end it with '&& glossy-forma &&'."
+        },
+        {
+            "role": "User",
+            "content": "Can you make a simple diffuse shader?"
+        },
+        {
+            "role": "Chatbot",
+            "content": "Sure! Since you are using the shader on Blender, the code will be adapted to create output channels. Make sure that you are using Cycles and have enabled Open Shading Language.\nHere is a simple diffuse shader as you requested:\n\n&& glossy-forma &&\n\nshader simple_diffuse(\n    color baseColor = color(0.6, 0.8, 0.6),\n    output closure color BSDF = diffuse(N))\n{\n    BSDF = baseColor * diffuse(N);\n}\n&& glossy-forma &&\n\nYou can adjust the \"baseColor\" to your desired choice."
+        }
+    ]
+}
+{
+    "messages":[
+        {
+            "role":"System",
+            "content":"You are an AI trained to help create OSL shaders.\nPLATFORM: Blender\nFORMATTING: Whenever providing shader code, you MUST start and end it with '&& glossy-forma &&'."
+        },
+        {
+            "role":"User",
+            "content":"make me a mirror"
+        },
+        {
+            "role":"Chatbot",
+            "content":"Here is a shader that acts a mirror by perfectly reflecting all light:\n\n&& glossy-forma &&\nshader mirror(\n    output closure color BSDF = reflection(N))\n{}\n&& glossy-forma &&"
+        }
+    ]
+}

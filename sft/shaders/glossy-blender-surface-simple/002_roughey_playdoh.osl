@@ -1,0 +1,7 @@
+shader roughey_playdoh(
+    color plasticColour = 0,
+    float roughness = 0.5,
+    output closure color BSDF = oren_nayar(N, roughness))
+{
+    BSDF = plasticColour * oren_nayar(N, roughness);
+}

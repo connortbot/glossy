@@ -1,0 +1,6 @@
+shader simple_diffuse(
+    color baseColor = color(0.6, 0.8, 0.6),
+    output closure color BSDF = diffuse(N))
+{
+    BSDF = baseColor * diffuse(N);
+}
