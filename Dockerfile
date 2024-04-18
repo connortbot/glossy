@@ -4,3 +4,4 @@ RUN pip install --no-cache-dir cohere
 
 
 # docker run -v C:\Users\loico\Documents\glossy:/app:z -it connortbot/personal-py:glossy-env
+# docker run -v /Users/MonkeyDumpling/Documents/Github/glossy:/app:z -it connortbot/personal-py:glossy-env
