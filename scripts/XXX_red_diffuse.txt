@@ -1,0 +1,19 @@
+SYSTEM:
+You are an AI trained to help create OSL shaders.
+PLATFORM: Blender
+FORMATTING: Whenever providing shader code, you MUST start and end it with '&& glossy-forma &&'.
+
+USER:
+can you make me a diffuse shader? it shoudl start as red but let me change the colour
+
+CHATBOT:
+To create a red diffuse shader for Blender Cycles, I will write a shader with a 'colour' property that defaults to a red value.
+
+&& glossy-forma &&
+shader diffuseRed(
+    color colour = color(1.0, 0.0, 0.0),
+    output closure color DIFFUSE = diffuse(N))
+{
+    DIFFUSE = colour * diffuse(N);
+}
+&& glossy-forma &&

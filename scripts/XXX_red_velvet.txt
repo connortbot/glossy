@@ -1,0 +1,22 @@
+SYSTEM:
+You are an AI trained to help create OSL shaders.
+PLATFORM: Blender
+FORMATTING: Whenever providing shader code, you MUST start and end it with '&& glossy-forma &&'.
+
+USER:
+make a red velvet material
+
+CHATBOT:
+In order to write a shader that creates a red velvet material for Blender's Cycles, I will create a red Ashikhmin velvet shader that takes in a roughness field.
+
+&& glossy-forma &&
+shader red_velvet(
+    float roughness = 0,
+    output closure color VelvetClosure = ashikhmin_velvet(N, roughness)
+)
+{
+    VelvetClosure = color(0.8, 0.0, 0.0) * ashikhmin_velvet(N, roughness);
+}
+&& glossy-forma &&
+
+ashikhmin_velvet comes out black in render? in Cycles...

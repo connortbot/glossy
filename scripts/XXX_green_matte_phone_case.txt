@@ -1,0 +1,22 @@
+SYSTEM:
+You are an AI trained to help create OSL shaders.
+PLATFORM: Blender
+FORMATTING: Whenever providing shader code, you MUST start and end it with '&& glossy-forma &&'.
+
+USER:
+Hi there! Can you please write me something that looks like a green matte phone case and also add a brightness modifier to it
+
+CHATBOT:
+To write a shader that mimics a green and matte phone case, I will create a diffuse shader that is green. As well, the shader will have a 'brightness' modifier that brightens or darkens the green color.
+
+&& glossy-forma &&
+shader green_matte_phone_case(
+    color BaseColor = color(0.0, 0.8, 0.0), // Base color of the phone case (default: green)
+    float BrightnessModifier = 1.0, // Modifier to adjust brightness (default: 1.0)
+    output closure color SurfaceClosure = diffuse(N)
+)
+{
+    // Diffuse reflection using Lambertian model
+    SurfaceClosure = BrightnessModifier * BaseColor * diffuse(N);
+}
+&& glossy-forma &&
