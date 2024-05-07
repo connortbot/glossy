@@ -1,4 +1,5 @@
 import json
+import os
 
 def convert_to_jsonl(text_file, jsonl_file):
     entries = []
@@ -40,3 +41,17 @@ def convert_to_jsonl(text_file, jsonl_file):
 
 # Usage
 convert_to_jsonl("conversation.txt", "data.jsonl")
+
+def process_txt_files(directory):
+    # Iterate through all files in the directory
+    for filename in os.listdir(directory):
+        # Check if the file is a .txt file
+        if filename.endswith(".txt"):
+            # Construct the full file path
+            file_path = os.path.join(directory, filename)
+            # Call the convert_to_jsonl function on the file
+            convert_to_jsonl(file_path, "data.jsonl")
+
+# Replace 'directory_path' with the path to your directory containing the .txt files
+directory_path = "."
+process_txt_files(directory_path)
