@@ -34,7 +34,7 @@ def convert_to_jsonl(text_file, jsonl_file):
         content_text = ''
 
     entries.append(current_dialogue)
-    with open(jsonl_file, 'w') as jfile:
+    with open(jsonl_file, 'a') as jfile:
         for entry in entries:
             jfile.write(json.dumps(entry) + "\n")
 
