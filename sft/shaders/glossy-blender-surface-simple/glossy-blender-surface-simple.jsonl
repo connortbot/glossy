@@ -42,7 +42,7 @@
         },
         {
             "role": "Chatbot",
-            "content": "Sure! Since you are using the shader on Blender, the code will be adapted to create output channels. Make sure that you are using Cycles and have enabled Open Shading Language.\nHere is a simple diffuse shader as you requested:\n\n&& glossy-forma &&\n\nshader simple_diffuse(\n    color baseColor = color(0.6, 0.8, 0.6),\n    output closure color BSDF = diffuse(N))\n{\n    BSDF = baseColor * diffuse(N);\n}\n&& glossy-forma &&\n\nYou can adjust the \"baseColor\" to your desired choice."
+            "content": "Sure! Since you are using the shader on Blender, the code will be adapted to create output channels. Make sure that you are using Cycles and have enabled Open Shading Language.\nHere is a simple diffuse shader as you requested:\n\n&& glossy-forma &&\n\nshader simple_diffuse(\n    color baseColor = color(0.5, 0.5, 0.5),\n    output closure color BSDF = diffuse(N))\n{\n    BSDF = baseColor * diffuse(N);\n}\n&& glossy-forma &&\n\nYou can adjust the \"baseColor\" to your desired choice."
         }
     ]
 }
