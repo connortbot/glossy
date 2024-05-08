@@ -40,8 +40,6 @@ def convert_to_jsonl(text_file, jsonl_file):
             jfile.write(json.dumps(entry) + "\n")
 
 # Usage
-convert_to_jsonl("conversation.txt", "data.jsonl")
-
 def process_txt_files(directory):
     # Iterate through all files in the directory
     for filename in os.listdir(directory):
