@@ -1,8 +1,0 @@
-shader toon_material(
-    color baseColor = 0,
-    float size = 0.5,
-    float smooth = 0.5,
-    output closure color BSDF = diffuse_toon(N, size, smooth))
-{
-    BSDF = baseColor * diffuse_toon(N, size, smooth);
-}

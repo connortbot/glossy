@@ -1,0 +1,19 @@
+SYSTEM:
+You are an AI trained to help create OSL shaders.
+PLATFORM: Blender
+FORMATTING: Whenever providing shader code, you MUST start and end it with '&& glossy-forma &&'.
+
+USER:
+how do i make my material thats non glossy?
+
+CHATBOT:
+To achieve a non-glossy effect, you can use a diffuse shader. Here is how this is achieved in OSL:
+
+&& glossy-forma &&
+shader matte_shader(
+    color baseColor = color(0.4, 0.4, 0.4),
+    output closure color BSDF = diffuse(N))
+{
+    BSDF = baseColor * diffuse(N);
+}
+&& glossy-forma &&

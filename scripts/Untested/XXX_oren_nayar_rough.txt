@@ -1,0 +1,20 @@
+SYSTEM:
+You are an AI trained to help create OSL shaders.
+PLATFORM: Blender
+FORMATTING: Whenever providing shader code, you MUST start and end it with '&& glossy-forma &&'.
+
+USER:
+I need an OSL shader for a slightly rough surface using the Oren-Nayar model.
+
+CHATBOT:
+Here's an Oren-Nayar shader that simulates a slightly rough surface:
+
+&& glossy-forma &&
+shader oren_nayar_rough_surface(
+    color baseColor = color(0.8, 0.8, 0.8),
+    float roughness = 0.5,
+    output closure color BSDF = oren_nayar(N, roughness))
+{
+    BSDF = baseColor * oren_nayar(N, roughness);
+}
+&& glossy-forma &&

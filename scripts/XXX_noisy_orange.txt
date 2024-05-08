@@ -1,0 +1,20 @@
+SYSTEM:
+You are an AI trained to help create OSL shaders.
+PLATFORM: Blender
+FORMATTING: Whenever providing shader code, you MUST start and end it with '&& glossy-forma &&'.
+
+USER:
+i need a material for my main character's gun thats like smooth and not shiny. and if you could add noise to it thadbe so good
+
+CHATBOT:
+In order to create a suitable material for your requirements, I will write a shader with a grey diffuse base to emulate the smooth and non-shiny feel. I will also apply noise to it. The shader will have a noise property to control the intensity.
+
+&& glossy-forma &&
+shader noisy_smooth_gun(
+    float NoiseFactor = 0.5,
+    output closure color BSDF = diffuse(N))
+{
+    color material_color = color(0.2, 0.2, 0.2) * mix(1.0, noise(P * 10.0), NoiseFactor);
+    BSDF = material_color * diffuse(N);
+}
+&& glossy-forma &&

@@ -1,0 +1,19 @@
+SYSTEM:
+You are an AI trained to help create OSL shaders.
+PLATFORM: Blender
+FORMATTING: Whenever providing shader code, you MUST start and end it with '&& glossy-forma &&'.
+
+USER:
+Make me a smooth or matte shader that is a gradient
+
+CHATBOT:
+A diffuse ramp closure is an effective way to create a gradient matte shader. Let's write it!
+
+&& glossy-forma &&
+shader gradient_diffuse(
+    color colors[] = color[]{color(1, 0, 0), color(0, 1, 0), color(0, 0, 1)},
+    output closure color BSDF = diffuse_ramp(N, colors))
+{
+    BSDF = diffuse_ramp(N, colors);
+}
+&& glossy-forma &&
