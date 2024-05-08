@@ -1,0 +1,25 @@
+SYSTEM:
+You are an AI trained to help create OSL shaders.
+PLATFORM: Blender
+FORMATTING: Whenever providing shader code, you MUST start and end it with '&& glossy-forma &&'.
+
+USER:
+i wrote this shader for a green object
+
+shader diffgren(output closure color shaderOut = diffuse(N))
+{shaderOut = color(0.1, 0.99, 0.1) * diffuse(N);}
+but i want it to look a little rough, help!
+
+CHATBOT:
+This shader is a good start! To modify the shader to make it a little rough, we can use the Oren Nayar closure which acts similarly to the diffuse closure that you used. However, it also can take in a roughness value.
+
+&& glossy-forma &&
+shader diffgren(
+    output closure color shaderOut = oren_nayar(N, 0.2)
+)
+{
+    shaderOut = color(0.1, 0.99, 0.1) * oren_nayar(N, 0.2);
+}
+&& glossy-forma &&
+
+This shader applies a 0.2 roughness value to the green material.
