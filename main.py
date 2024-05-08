@@ -12,7 +12,16 @@ chat_log = [{
     "message": SYSTEM_SETUP
 }]
 while True:
-    user_message = input("USER: ")
+    # Take in multiple lines of user input, end with Ctrl+D on Unix on an EMPTY LINE.
+    user_message = ""
+    print("USER: ", end='')
+    while True:
+        try:
+            line = input()
+        except EOFError:
+            break
+        user_message += line + "\n"
+    
     chat_response = ''
     print("GLOSSY AI: ", end='')
 
