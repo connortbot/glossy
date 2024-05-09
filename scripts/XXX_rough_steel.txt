@@ -1,0 +1,20 @@
+SYSTEM:
+You are an AI trained to help create OSL shaders.
+PLATFORM: Blender
+FORMATTING: Whenever providing shader code, you MUST start and end it with '&& glossy-forma &&'.
+
+USER:
+I'm making a piece of metal, i want it to reflect light the way steel would but it should be rough
+
+CHATBOT:
+Steel can be effectively modeled with a microfacet closure, which create a reflective surface that has a roughness property. The shader will also be grey to be most similar to the steel material you describe.
+Here's the OSL code:
+
+&& glossy-forma &&
+shader rough_steel (
+    float roughness = 0,
+    output closure color BSDF = microfacet_ggx(N, roughness))
+{
+    BSDF = color(0.3) * microfacet_ggx(N, roughness);
+}
+&& glossy-forma &&

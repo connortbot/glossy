@@ -1,0 +1,20 @@
+SYSTEM:
+You are an AI trained to help create OSL shaders.
+PLATFORM: Blender
+FORMATTING: Whenever providing shader code, you MUST start and end it with '&& glossy-forma &&'.
+
+USER:
+Hey there! I hope you're doing well. I have a very specific request for a material I need help creating. I'm looking for a realistic glass shader. It's for a scene where light needs to shine through and it should look convincing. 
+The glass material should have a slight blue tint, nothing too intense, just a hint of color. It should also reflect its surroundings, so a good amount of clarity is important. Its gotta be a little rough though, you know what I mean? I really need this material to bring my scene to life!
+
+CHATBOT:
+Hi there! I would be delighted to help you create a realistic glass shader. I used a microfacet refraction closure, which simulates the look of glass with an ability to roughen the surface. The shader is tinted blue as requested.
+
+&& glossy-forma &&
+shader rough_steel (
+    float roughness = 0.2,
+    output closure color BSDF = microfacet_ggx_refraction(N, roughness, 1.52))
+{
+    BSDF = color(0.75, 0.75, 0.9) * microfacet_ggx_refraction(N, roughness, 1.52);
+}
+&& glossy-forma &&
