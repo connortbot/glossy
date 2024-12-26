@@ -11,6 +11,7 @@ chat_log = [{
     "role": "SYSTEM", 
     "message": SYSTEM_SETUP
 }]
+# chat loop
 while True:
     # Take in multiple lines of user input, end with Ctrl+D on Unix on an EMPTY LINE.
     user_message = ""
